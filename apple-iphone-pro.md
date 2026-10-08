@@ -1,0 +1,341 @@
+# Apple iPhone Pro 14–18 — камеры и профессиональные видеоформаты
+
+Рабочая техническая памятка по камерам и видеозаписи на iPhone Pro / Pro Max поколений 14–18. Основной акцент — профессиональная съёмка, Blackmagic Camera / Final Cut Camera, Apple Log, Apple Log 2, ProRes, ProRes RAW и PAL-oriented workflow с частотами 25 / 50 / 100 fps.
+
+Актуальность: октябрь 2026.
+
+> Важно: **кодек и гамма/цветовое пространство — разные вещи**. Например, Apple Log 2 можно записывать как ProRes 422 или HEVC. ProRes 422 определяет способ кодирования, битность и цветовую дискретизацию, а Apple Log 2 — логарифмическую функцию передачи и цветовое пространство.
+
+## Камеры iPhone Pro по поколениям
+
+### Задние камеры
+
+| Поколение | Основная камера | Ultra Wide | Telephoto | Важное отличие |
+|---|---|---|---|---|
+| **iPhone 14 Pro / Pro Max** | 48 Мп, 24 мм, f/1.78 | 12 Мп, 13 мм, f/2.2 | 12 Мп, 77 мм, 3×, f/2.8 | первый 48-Мп основной сенсор; 48 мм 2× — crop основной камеры |
+| **iPhone 15 Pro** | 48 Мп, 24 мм, f/1.78 | 12 Мп, 13 мм, f/2.2 | 12 Мп, 77 мм, 3×, f/2.8 | Apple Log, USB-C |
+| **iPhone 15 Pro Max** | 48 Мп, 24 мм, f/1.78 | 12 Мп, 13 мм, f/2.2 | 12 Мп, 120 мм, 5×, f/2.8 | tetraprism 120 мм |
+| **iPhone 16 Pro / Pro Max** | 48 Мп Fusion, 24 мм, f/1.78 | **48 Мп**, 13 мм, f/2.2 | 12 Мп, 120 мм, 5×, f/2.8 | 4K100/120 на основной камере; 48-Мп Ultra Wide |
+| **iPhone 17 Pro / Pro Max** | 48 Мп Fusion, 24 мм, f/1.78 | 48 Мп, 13 мм, f/2.2 | **48 Мп**, 100 мм, 4×, f/2.8; 200 мм 8× crop | Apple Log 2, ProRes RAW, genlock |
+| **iPhone 18 Pro / Pro Max** | 48 Мп Fusion, 24 мм, **f/1.48 / 1.8 / 2.8 / 4.0** | 48 Мп, 13 мм, f/2.2 | 48 Мп, 100 мм, 4×, f/2.8; 200 мм 8× crop | физическая переменная диафрагма и штатные pro-controls |
+
+### Что считать физической камерой, а что crop
+
+- **48 мм 2×** у всех этих поколений — центральный crop основной 48-Мп камеры, а не отдельный объектив.
+- **200 мм 8×** у iPhone 17/18 Pro — центральный crop 48-Мп 100-мм telephoto.
+- У iPhone 15 единственное существенное различие камер между Pro и Pro Max: Pro имеет 77 мм 3×, Pro Max — 120 мм 5×.
+- У iPhone 16, 17 и 18 Pro / Pro Max основные задние камеры по фокусным и базовым оптическим характеристикам одинаковы.
+
+## Эволюция профессионального видео
+
+| Возможность | 14 Pro | 15 Pro | 16 Pro | 17 Pro | 18 Pro |
+|---|---:|---:|---:|---:|---:|
+| Manual ISO через pro-app | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Shutter speed / shutter angle | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Manual WB / tint | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Manual focus / focus peaking | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Zebra / histogram / false color | ✅ | ✅ | ✅ | ✅ | ✅ |
+| LUT monitoring | ✅ | ✅ | ✅ | ✅ | ✅ |
+| ProRes 422 family | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Apple Log** | ❌ | ✅ | ✅ | заменён Log 2 | заменён Log 2 |
+| **Apple Log 2** | ❌ | ❌ | ❌ | ✅ | ✅ |
+| **ProRes RAW / RAW HQ** | ❌ | ❌ | ❌ | ✅ | ✅ |
+| USB-C 10 Gb/s | ❌ Lightning | ✅ | ✅ | ✅ | ✅ |
+| Прямая запись ProRes на внешний SSD | ❌ | ✅ | ✅ | ✅ | ✅ |
+| ProRes до 4K25 | ✅ | ✅ | ✅ | ✅ | ✅ |
+| ProRes до 4K50/60 external | ❌ | ✅ | ✅ | ✅ | ✅ |
+| 4K100/120 на Main | ❌ | ❌ | ✅ | ✅ | ✅ |
+| ProRes до 4K100/120 external | ❌ | ❌ | ✅ | ✅ | ✅ |
+| Genlock | ❌ | ❌ | ❌ | ✅ | ✅ |
+| External timecode через pro-app/accessory | ✅* | ✅* | ✅* | ✅ | ✅ |
+| ProRes RAW stabilization | ❌ | ❌ | ❌ | ✅** | ✅** |
+| Физически регулируемая диафрагма Main | ❌ | ❌ | ❌ | ❌ | **✅** |
+| Штатные pro-controls Apple Camera: aperture/shutter/WB/histogram | ❌ | ❌ | ❌ | ❌ | **✅** |
+
+\* Blackmagic Camera поддерживает внешний timecode, включая Tentacle Sync E; это не то же самое, что genlock.  
+\** Blackmagic Camera 3.3+ на iOS 26.1+.
+
+### Ключевые ступени
+
+- **14 Pro** — профессиональные ручные controls и ProRes, но без нативного Apple Log и без нормального SSD workflow.
+- **15 Pro** — первый действительно удобный production-iPhone: Apple Log + USB-C + внешний SSD + ProRes до 4K60.
+- **16 Pro** — 4K100/120 и ProRes до 4K120 на внешний носитель.
+- **17 Pro** — Apple Log 2 + ProRes RAW / RAW HQ + genlock; telephoto переходит на 48 Мп / 100 мм.
+- **18 Pro** — сохраняет RAW/Log 2/genlock и впервые получает физическую переменную диафрагму основной камеры и штатные pro-controls.
+
+## PAL: 25 / 50 / 100 fps
+
+Для этого репозитория рабочими считаются PAL-oriented частоты:
+
+| Частота | Типовое применение | Shutter по правилу 180° |
+|---:|---|---:|
+| **25 fps** | основная timeline / normal motion | **1/50 s** |
+| **50 fps** | 2× slow motion в 25p timeline | **1/100 s** |
+| **100 fps** | 4× slow motion в 25p timeline | **1/200 s** |
+
+24/30/60/120 fps поддерживаются разными поколениями iPhone, но здесь они вторичны. Для монтажа в 25p удобнее 50 и 100 fps, когда приложение и выбранный codec/camera mode их предоставляют.
+
+Текущая Final Cut Camera поддерживает constant frame rates 25 и 50 fps на поддерживаемых моделях; на iPhone 16 Pro и новее доступны режимы 4K100 на основной камере. Доступность конкретной комбинации «объектив + codec + resolution + fps» всегда надо проверять в выбранном приложении.
+
+## Кодек, битность, chroma и Log — не смешивать
+
+### Краткая техническая таблица
+
+| Формат записи | Битность | Chroma | Тип компрессии | Log? | Практический смысл |
+|---|---|---|---|---|---|
+| **H.264 / AVC SDR** | обычно 8-bit | обычно 4:2:0 | inter-frame / Long-GOP | нет | максимальная совместимость, сравнительно небольшие файлы |
+| **HEVC / H.265 SDR** | обычно 8-bit | обычно 4:2:0 | inter-frame / Long-GOP | нет | эффективнее H.264 при сопоставимом качестве |
+| **HEVC HDR / HLG / Dolby Vision** | 10-bit | 4:2:0 | inter-frame / Long-GOP | нет, HDR transfer | HDR с небольшими файлами |
+| **HEVC + Apple Log** | **10-bit** | **4:2:0** | inter-frame / Long-GOP | **да** | компактный Log на iPhone 15/16 Pro |
+| **HEVC + Apple Log 2** | **10-bit** | **4:2:0** | inter-frame / Long-GOP | **да** | компактный Log 2 на iPhone 17/18 Pro |
+| **ProRes 422 Proxy** | **10-bit** | **4:2:2** | intra-frame, VBR | зависит от color space | минимальный ProRes bitrate |
+| **ProRes 422 LT** | **10-bit** | **4:2:2** | intra-frame, VBR | зависит от color space | хороший компромисс для travel |
+| **ProRes 422** | **10-bit** | **4:2:2** | intra-frame, VBR | зависит от color space | основной high-quality production codec |
+| **ProRes 422 HQ** | **10-bit** | **4:2:2** | intra-frame, VBR | зависит от color space | максимальный 422 bitrate, очень большие файлы |
+| **ProRes RAW** | RAW sensor/Bayer | **не применимо** | RAW, frame-independent, variable data rate | RAW, не Log-codec | максимум свободы на посте |
+| **ProRes RAW HQ** | RAW sensor/Bayer | **не применимо** | RAW, выше data rate | RAW, не Log-codec | максимальное качество и максимальные файлы |
+
+### Почему у RAW нет «4:2:2»
+
+4:2:0 и 4:2:2 описывают дискретизацию цветоразностных каналов уже сформированного YCbCr-видео. ProRes RAW кодирует данные Bayer-сенсора до обычного demosaic-представления, поэтому присваивать ему «4:2:2» или «4:2:0» некорректно.
+
+По той же причине поле «10-bit / 12-bit YCbCr» нельзя переносить на ProRes RAW один к одному. Это RAW sensor data; Apple отдельно описывает его как Bayer RAW workflow.
+
+## Apple Log и Apple Log 2
+
+### Apple Log
+
+- появился на **iPhone 15 Pro / Pro Max**;
+- использует Apple-defined logarithmic transfer function;
+- primaries — **BT.2020**;
+- может записываться в ProRes или, в поддерживающих приложениях, в HEVC;
+- Apple Log — **не codec**.
+
+### Apple Log 2
+
+- появился на **iPhone 17 Pro / Pro Max**;
+- есть также на iPhone 18 Pro / Pro Max;
+- использует **Apple Gamut** и новую Apple-defined Log curve;
+- имеет более широкий gamut, чем первое поколение Apple Log;
+- может записываться в ProRes или HEVC;
+- Apple Log 2 — **не ProRes RAW** и не является codec.
+
+### ProRes RAW
+
+ProRes RAW хранит RAW-данные сенсора. В Final Cut Camera при выборе RAW color-space selector отключается: RAW сам по себе не привязан к Apple Log / Rec.709 / HLG. Для preview приложение может автоматически использовать LUT Apple Log 2 → HDR/SDR, но это не означает, что RAW-файл является «Apple Log 2 video».
+
+## ProRes 422: официальные PAL bitrates и размер минуты
+
+Ниже — **UHD 4K 3840×2160**. Для 25p и 50p использованы target data rates из официального Apple ProRes White Paper. ProRes — VBR, поэтому реальный файл немного зависит от изображения.
+
+Размер минуты рассчитан как:
+
+    GB/min ≈ Mbps × 60 / 8 / 1000
+
+### 4K UHD ProRes
+
+| Codec | **25p** bitrate | **25p GB/min** | **50p** bitrate | **50p GB/min** | **100p** bitrate* | **100p GB/min*** |
+|---|---:|---:|---:|---:|---:|---:|
+| **ProRes 422 Proxy** | 151 Mb/s | **1.13 GB** | 303 Mb/s | **2.27 GB** | ~606 Mb/s | **~4.55 GB** |
+| **ProRes 422 LT** | 342 Mb/s | **2.57 GB** | 684 Mb/s | **5.13 GB** | ~1368 Mb/s | **~10.26 GB** |
+| **ProRes 422** | 492 Mb/s | **3.69 GB** | 983 Mb/s | **7.37 GB** | ~1966 Mb/s | **~14.75 GB** |
+| **ProRes 422 HQ** | 737 Mb/s | **5.53 GB** | 1475 Mb/s | **11.06 GB** | ~2950 Mb/s | **~22.13 GB** |
+
+\* В Apple ProRes White Paper 2022 нет отдельной строки 100p. Значения 100p здесь **расчётные**, получены линейным масштабированием target rate 50p ×2. Для реальной записи на iPhone итоговый размер следует проверять по конкретному приложению и клипу.
+
+### Сколько это значит для SSD
+
+Пример для 1 ТБ свободного места, без учёта файловой системы и запаса:
+
+| Codec / 4K25 | Примерно минут на 1 ТБ |
+|---|---:|
+| ProRes Proxy | ~880 мин |
+| ProRes LT | ~389 мин |
+| ProRes 422 | ~271 мин |
+| ProRes 422 HQ | ~181 мин |
+
+Для 4K50 время примерно вдвое меньше; для 4K100 — примерно в четыре раза меньше, чем 25p.
+
+## HEVC и H.264: bitrate и размер минуты
+
+В отличие от ProRes 422, здесь нельзя корректно указать один универсальный bitrate для iPhone.
+
+Причины:
+
+- HEVC/H.264 обычно работают как VBR;
+- bitrate зависит от приложения, codec profile, HDR/Log/SDR, frame rate и сцены;
+- Blackmagic Camera показывает для H.264/H.265 уровни **Low / Medium / High / Max**, но Blackmagic не публикует для них фиксированные значения Mb/s;
+- поэтому цифра «HEVC всегда N Mb/s» была бы ложной точностью.
+
+### Официальный ориентир Final Cut Camera
+
+Apple указывает для Final Cut Camera:
+
+- **HEVC 4K30: более 175 MB/min**, то есть порядок **>23 Mb/s**.
+
+Если только для грубой оценки пропорционально пересчитать это значение по количеству кадров, получится:
+
+| HEVC 4K | Грубый эквивалент от Apple 4K30 reference | Размер минуты |
+|---|---:|---:|
+| **25p** | ~19.4 Mb/s и выше | **~146 MB/min и выше** |
+| **50p** | ~38.9 Mb/s и выше | **~292 MB/min и выше** |
+| **100p** | ~77.8 Mb/s и выше | **~583 MB/min и выше** |
+
+Это **не обещанный bitrate** и не preset Blackmagic Camera. Это только масштабированный storage reference. Реальный HEVC Apple Log / HDR / Max-quality может быть заметно тяжелее.
+
+### H.264
+
+Blackmagic Camera позволяет H.264, но не публикует абсолютный bitrate для Low / Medium / High / Max. Практически H.264 при сопоставимом качестве обычно требует больше данных, чем HEVC. Для планирования поездки не стоит рассчитывать размер H.264 «по названию codec» — сделайте тестовый клип нужного режима и проверьте реальный bitrate/size через MediaInfo или ffprobe.
+
+## ProRes RAW: размер минуты
+
+Apple приводит реальную оценку для **Open Gate 4224×3024, 30 fps**:
+
+- ProRes RAW: **более 10 GB/min**;
+- ProRes RAW HQ: **более 15 GB/min**.
+
+RAW имеет data rate, который сильнее зависит от содержимого кадра, чем обычный ProRes 422, поэтому следующие PAL-значения — только грубая пропорциональная оценка:
+
+| Open Gate RAW | **25p** | **50p** | **100p** |
+|---|---:|---:|---:|
+| **ProRes RAW** | **>~8.3 GB/min** | **>~16.7 GB/min** | Open Gate не поддерживает 100p |
+| **ProRes RAW HQ** | **>~12.5 GB/min** | **>~25 GB/min** | Open Gate не поддерживает 100p |
+
+Open Gate 4224×3024 работает до 60 fps. В Final Cut Camera RAW можно переключить в **17:9 4224×2240**, где с определёнными линзами доступны 100/120 fps. Для этого режима Apple не публикует простой официальный GB/min reference, поэтому размер лучше смотреть непосредственно в Final Cut Camera по оставшемуся времени записи.
+
+### RAW очень быстро съедает накопитель
+
+Даже грубая оценка:
+
+- 25p ProRes RAW → порядка **8+ GB в минуту**;
+- 25p RAW HQ → порядка **12+ GB в минуту**;
+- 50p RAW → порядка **17+ GB в минуту**.
+
+Поэтому RAW разумно использовать для отдельных важных кадров, а не как дефолтный travel codec.
+
+## Что выбирать для реальной съёмки
+
+### iPhone 14 Pro
+
+Для работы рядом с BRAW / S-Log3:
+
+- ProRes 422 LT / 422, если нужен удобный монтаж;
+- ручные ISO / shutter / WB через Blackmagic Camera;
+- нативного Apple Log нет, поэтому матчинг с BRAW/S-Log3 менее прямой.
+
+### iPhone 15 Pro
+
+Основной рабочий вариант:
+
+- **Apple Log + ProRes 422 LT** — хороший баланс качества и размера;
+- **Apple Log + ProRes 422** — если важнее запас на посте;
+- **Apple Log + HEVC 10-bit** — если критичен объём данных;
+- внешний SSD делает ProRes workflow реально практичным.
+
+### iPhone 16 Pro
+
+То же, что 15 Pro, плюс:
+
+- 4K100 для 4× slow motion в 25p timeline;
+- 4K100/120 ProRes требует очень быстрый внешний storage;
+- для обычного travel 25p/50p ProRes LT всё ещё гораздо рациональнее 100p HQ.
+
+### iPhone 17 Pro
+
+Основной production workflow:
+
+- **Apple Log 2 + ProRes 422 LT / 422** — дефолт;
+- **Apple Log 2 + HEVC 10-bit** — компактный вариант;
+- **ProRes RAW / RAW HQ** — hero shots, сложный свет, кадры с максимальной ценностью;
+- genlock и внешний timecode — когда это действительно нужно multicam-production.
+
+### iPhone 18 Pro
+
+То же, что 17 Pro, плюс:
+
+- физическая диафрагма основной камеры **f/1.48 / 1.8 / 2.8 / 4**;
+- Blackmagic Camera 3.5+ умеет управлять этой диафрагмой;
+- штатная Camera.app получила pro-controls для aperture, shutter speed, WB и histogram;
+- Pro Video Storage даёт дополнительный профессиональный workflow записи ProRes.
+
+## Практический preset для 25p travel-video
+
+Если конечная timeline — 25 fps:
+
+### Основной материал
+
+    4K 25p
+    shutter 180° ≈ 1/50
+    Apple Log / Apple Log 2
+    ProRes 422 LT или ProRes 422
+    WB fixed
+    ISO вручную или осознанный Auto ISO
+    ND при необходимости
+
+### Slow motion ×2
+
+    4K 50p
+    shutter 180° ≈ 1/100
+    conform → 25p
+
+### Slow motion ×4
+
+    4K 100p
+    shutter 180° ≈ 1/200
+    iPhone 16 Pro и новее, Main camera
+    conform → 25p
+
+## Blackmagic Camera
+
+На iPhone Blackmagic Camera полезна не тем, что «делает сенсор Blackmagic», а тем, что даёт camera-like workflow:
+
+- ISO;
+- shutter speed или shutter angle;
+- fixed white balance / tint;
+- manual focus;
+- focus peaking;
+- zebra;
+- RGB histogram;
+- false color;
+- LUT monitoring;
+- ProRes 422 HQ / 422 / LT / Proxy;
+- HEVC / H.264;
+- timecode;
+- запись на внешний storage на USB-C моделях.
+
+Blackmagic Camera 3.5 добавила поддержку iPhone 18 Pro / Pro Max, управление физической variable aperture основной камеры и запись ProRes в Pro Video Storage.
+
+## Timecode и genlock — разные вещи
+
+**Timecode** даёт кадрам общий временной адрес и очень удобен для синхронизации при монтаже.
+
+**Genlock** синхронизирует сам момент начала каждого кадра между камерами.
+
+Blackmagic Camera поддерживает внешний Bluetooth timecode, включая Tentacle Sync E, и на более ранних iPhone. Аппаратный genlock появляется как системная pro-возможность у iPhone 17 Pro и 18 Pro и используется с совместимым sync hardware, например Blackmagic Camera ProDock.
+
+## Источники
+
+### Apple — модели
+
+- iPhone 14 Pro / Pro Max: https://support.apple.com/en-gb/111846
+- iPhone 15 Pro: https://support.apple.com/en-gb/111829
+- iPhone 15 Pro Max: https://support.apple.com/en-us/111828
+- iPhone 16 Pro Max: https://support.apple.com/en-us/121032
+- iPhone 17 Pro / Pro Max: https://www.apple.com/iphone-17-pro/specs/
+- iPhone 18 Pro / Pro Max: https://www.apple.com/iphone-18-pro/specs/
+
+### Apple — codecs / Final Cut Camera
+
+- About Apple ProRes on iPhone: https://support.apple.com/en-us/109041
+- Apple ProRes White Paper: https://www.apple.com/final-cut-pro/docs/Apple_ProRes.pdf
+- Apple ProRes RAW White Paper: https://www.apple.com/final-cut-pro/docs/Apple_ProRes_RAW.pdf
+- Final Cut Camera — video format: https://support.apple.com/guide/final-cut-camera/dev14d309a3f/ios
+- Final Cut Camera — ProRes RAW recording: https://support.apple.com/guide/final-cut-camera/dev6b8c9521d/ios
+- Apple Developer — Apple Log: https://developer.apple.com/documentation/avfoundation/avcapturecolorspace/applelog
+- Apple Developer — Apple Log 2: https://developer.apple.com/documentation/avfoundation/avcapturecolorspace/applelog2
+
+### Blackmagic Design
+
+- Blackmagic Camera technical specifications: https://www.blackmagicdesign.com/products/blackmagiccamera/techspecs
+- Blackmagic Camera for iOS 3.3: https://www.blackmagicdesign.com/media/release/20260415-01
+- Blackmagic Camera App Store / version history: https://apps.apple.com/us/app/blackmagic-camera/id6449580241
