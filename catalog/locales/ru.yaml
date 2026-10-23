@@ -1,0 +1,41 @@
+locale: ru
+labels:
+  types:
+    camera: Камера
+    lens: Объектив
+    mount_adapter: Переходник байонета
+    gimbal: Электронный стабилизатор
+    battery: Аккумулятор
+    cage: Клетка для камеры
+  fields:
+    manufacturer: Производитель
+    model: Модель
+    weight_g: Масса
+    measurement_configuration: Условия измерения массы
+    focal_length: Фокусное расстояние
+    max_aperture_f: Максимальная диафрагма
+    max_aperture_t: Максимальная светосила T
+    filter_front_thread_mm: Резьба под фильтр
+    image_circle_mm: Круг изображения
+    sensor_format: Формат сенсора
+    shutter_type: Тип затвора
+    continuous_af: Следящий автофокус
+    recording_codec: Кодек записи
+    bit_depth: Разрядность
+    capacity_wh: Энергия аккумулятора
+    capacity_mah: Ёмкость аккумулятора
+    voltage_v: Напряжение
+    mount: Байонет
+    source: Источник
+    verified_at: Проверено
+  values:
+    owned: Есть в наличии
+    planned: Запланировано
+    considering: Рассматривается
+    sold: Продано
+    borrowed: Временно используется
+    global: Глобальный затвор
+    rolling: Построчное считывание
+    with_battery_and_card: С аккумулятором и картой памяти
+    assembled_without_tripod: В сборе без мини-штатива
+    not_tested: Не проверено

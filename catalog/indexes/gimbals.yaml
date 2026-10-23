@@ -1,0 +1,3 @@
+models:
+  - models/gimbals/dji-rs-3-pro.yaml
+  - models/gimbals/dji-rs-4-mini.yaml

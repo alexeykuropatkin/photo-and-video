@@ -1,0 +1,12 @@
+id: a7s3-sel2470gm-rs3pro
+description: Sony A7S III with owned FE 24-70mm F2.8 GM I and DJI RS 3 Pro, without mini tripod.
+components:
+  - model_id: sony-ilce-7sm3
+    measurement_id: with-battery-and-card
+    placement: moving
+  - model_id: sony-sel2470gm
+    measurement_id: catalog-lens
+    placement: moving
+  - model_id: dji-rs-3-pro
+    measurement_id: assembled-without-tripod
+    placement: fixed_gimbal

@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "common.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "battery"
+        },
+        "specs": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "chemistry": {
+              "type": "string",
+              "enum": [
+                "li_ion",
+                "li_po",
+                "lifepo4",
+                "nimh",
+                "alkaline",
+                "other"
+              ]
+            },
+            "capacity_wh": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "capacity_mah": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "nominal_voltage_v": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "min_voltage_v": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "max_voltage_v": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "battery_interface_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "outputs": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "connector_id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "min_voltage_v": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  "max_voltage_v": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  "max_continuous_w": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  "max_continuous_current_a": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  }
+                },
+                "required": [
+                  "connector_id"
+                ]
+              }
+            },
+            "physical": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "width_mm": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "height_mm": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "depth_mm": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                }
+              }
+            },
+            "manufacturer_rated_cycles": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "chemistry",
+            "capacity_wh",
+            "nominal_voltage_v"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "specs"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+version: "1.0"
+values:
+  sony-np-fz100-slot: {kind: native_battery_slot}
+  micro-v-mount: {kind: battery_mount}
+  v-mount: {kind: battery_mount}
+  d-tap: {kind: dc_output}
+  usb-c-pd: {kind: regulated_power_interface}
+  red-v-raptor-6-pin-dc: {kind: camera_dc_input}

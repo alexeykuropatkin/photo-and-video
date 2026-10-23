@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "common.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "lens"
+        },
+        "specs": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "mount_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sensor_format_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "image_circle_mm": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "focal_length": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "min_mm": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "max_mm": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                }
+              },
+              "required": [
+                "min_mm",
+                "max_mm"
+              ]
+            },
+            "aperture": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "max_f": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "max_t": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "min_f": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "constant": {
+                  "type": "boolean"
+                },
+                "control": {
+                  "type": "string",
+                  "enum": [
+                    "mechanical",
+                    "electronic",
+                    "both"
+                  ]
+                },
+                "blades": {
+                  "type": "integer",
+                  "minimum": 3
+                }
+              }
+            },
+            "focus": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "autofocus": {
+                  "type": "boolean"
+                },
+                "motor_type": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minimum_distance_m": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "max_magnification": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "focus_throw_deg": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "focus_breathing_compensation": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "zoom": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "internal": {
+                  "type": "boolean"
+                },
+                "power_zoom": {
+                  "type": "boolean"
+                },
+                "parfocal": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "stabilization": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "optical": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "filter": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "front_thread_mm": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "rear_holder": {
+                  "type": "boolean"
+                },
+                "front_matte_box_mm": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                }
+              }
+            },
+            "physical": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "width_mm": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "height_mm": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "depth_mm": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                }
+              }
+            }
+          },
+          "required": [
+            "mount_id",
+            "focal_length",
+            "aperture"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "specs"
+      ]
+    }
+  ]
+}

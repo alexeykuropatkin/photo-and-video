@@ -1,0 +1,26 @@
+name: Equipment catalog validation
+
+on:
+  push:
+    paths:
+      - 'catalog/**'
+      - 'scripts/**'
+      - '.github/workflows/catalog-validation.yml'
+  pull_request:
+    paths:
+      - 'catalog/**'
+      - 'scripts/**'
+      - '.github/workflows/catalog-validation.yml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r scripts/requirements-catalog.txt
+      - run: python scripts/validate_catalog.py
+      - run: python scripts/export_catalog.py --locale en --out generated/catalog.en.json
+      - run: python scripts/export_catalog.py --locale ru --out generated/catalog.ru.json

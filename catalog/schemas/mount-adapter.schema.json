@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "common.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "mount_adapter"
+        },
+        "specs": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "lens_mount_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "camera_mount_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "mechanical": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "locking": {
+                  "type": "string",
+                  "enum": [
+                    "friction",
+                    "positive_lock",
+                    "unknown"
+                  ]
+                },
+                "lens_support_available": {
+                  "type": "boolean"
+                },
+                "flange_thickness_mm": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                }
+              }
+            },
+            "optics": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "contains_glass": {
+                  "type": "boolean"
+                },
+                "magnification_factor": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                }
+              }
+            },
+            "electronic": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "contacts": {
+                  "type": "boolean"
+                },
+                "autofocus": {
+                  "type": "boolean"
+                },
+                "electronic_aperture": {
+                  "type": "boolean"
+                },
+                "lens_stabilization": {
+                  "type": "boolean"
+                },
+                "exif_metadata": {
+                  "type": "boolean"
+                },
+                "firmware_updatable": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "physical": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "width_mm": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "height_mm": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "depth_mm": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                }
+              }
+            }
+          },
+          "required": [
+            "lens_mount_id",
+            "camera_mount_id"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "specs"
+      ]
+    }
+  ]
+}

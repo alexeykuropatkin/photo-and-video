@@ -1,0 +1,26 @@
+catalog_version: "1.0.0"
+name: Photo & Video Equipment Catalog
+default_locale: en
+supported_locales:
+  - en
+  - ru
+type_registry: types.yaml
+model_indexes:
+  camera: indexes/cameras.yaml
+  lens: indexes/lenses.yaml
+  mount_adapter: indexes/mount-adapters.yaml
+  gimbal: indexes/gimbals.yaml
+  battery: indexes/batteries.yaml
+  cage: indexes/cages.yaml
+vocabularies:
+  mounts: vocabularies/mounts.yaml
+  sensor_formats: vocabularies/sensor-formats.yaml
+  codecs: vocabularies/codecs.yaml
+  power_interfaces: vocabularies/power-interfaces.yaml
+locales:
+  en: locales/en.yaml
+  ru: locales/ru.yaml
+inventory: inventory/items.yaml
+rigs_dir: rigs
+compatibility_dir: compatibility
+media_root: ../assets
