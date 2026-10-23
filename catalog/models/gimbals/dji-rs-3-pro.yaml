@@ -1,0 +1,20 @@
+id: dji-rs-3-pro
+type: gimbal
+manufacturer: DJI
+model: RS 3 Pro
+specs:
+  tested_payload_max_g: 4500
+  axis_locks: automatic
+measurements:
+  - id: assembled-without-tripod
+    configuration: assembled_without_tripod
+    weight_g: 1515
+    includes: [gimbal_head, battery_grip, upper_quick_release_plate, lower_quick_release_plate]
+    excludes: [mini_tripod, camera, lens]
+    source_id: dji-specifications
+    note: "1143 + 265 + 107 g. Includes the grip and both quick-release plates."
+sources:
+  - id: dji-specifications
+    kind: manufacturer
+    url: https://www.dji.com/rs-3-pro
+    verified_at: "2026-10-23"

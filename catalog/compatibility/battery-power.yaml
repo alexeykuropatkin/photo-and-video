@@ -1,0 +1,14 @@
+version: "1.0"
+relations:
+  - battery_model_id: sony-np-fz100
+    camera_model_id: sony-ilce-7sm3
+    connection: native_slot
+    interface_id: sony-np-fz100-slot
+    status: manufacturer_confirmed
+    source_url: https://www.sony.com/electronics/support/e-mount-body-ilce-7-series/ilce-7sm3/specifications
+  - battery_model_id: sony-np-fz100
+    camera_model_id: sony-ilce-6700
+    connection: native_slot
+    interface_id: sony-np-fz100-slot
+    status: manufacturer_confirmed
+    source_url: https://www.sony.com/electronics/support/e-mount-body-ilce-6000-series/ilce-6700/specifications

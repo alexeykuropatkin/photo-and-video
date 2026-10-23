@@ -1,0 +1,26 @@
+version: "1.0"
+types:
+  camera:
+    schema: schemas/camera.schema.json
+    models_dir: models/cameras
+    index: indexes/cameras.yaml
+  lens:
+    schema: schemas/lens.schema.json
+    models_dir: models/lenses
+    index: indexes/lenses.yaml
+  mount_adapter:
+    schema: schemas/mount-adapter.schema.json
+    models_dir: models/mount-adapters
+    index: indexes/mount-adapters.yaml
+  gimbal:
+    schema: schemas/gimbal.schema.json
+    models_dir: models/gimbals
+    index: indexes/gimbals.yaml
+  battery:
+    schema: schemas/battery.schema.json
+    models_dir: models/batteries
+    index: indexes/batteries.yaml
+  cage:
+    schema: schemas/cage.schema.json
+    models_dir: models/cages
+    index: indexes/cages.yaml

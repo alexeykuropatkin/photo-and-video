@@ -1,0 +1,231 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$",
+      "minLength": 1
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "camera",
+        "lens",
+        "mount_adapter",
+        "gimbal",
+        "battery",
+        "cage"
+      ]
+    },
+    "manufacturer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "model": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sku": {
+      "type": "string"
+    },
+    "generation": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "current",
+        "discontinued",
+        "announced",
+        "unknown"
+      ]
+    },
+    "specs": {
+      "type": "object"
+    },
+    "measurements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]*$",
+            "minLength": 1
+          },
+          "configuration": {
+            "type": "string",
+            "enum": [
+              "bare_body",
+              "with_battery_and_card",
+              "lens_without_caps",
+              "gimbal_head_only",
+              "assembled_without_tripod",
+              "battery_only",
+              "measured_custom"
+            ]
+          },
+          "weight_g": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "includes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "excludes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "source_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "note": {
+            "type": "string"
+          },
+          "tolerance_g": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "id",
+          "configuration",
+          "weight_g",
+          "includes",
+          "excludes",
+          "source_id"
+        ]
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]*$",
+            "minLength": 1
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "manufacturer",
+              "independent_test",
+              "user_report",
+              "calculated"
+            ]
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "verified_at": {
+            "type": "string",
+            "format": "date"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "url",
+          "verified_at"
+        ]
+      }
+    },
+    "media": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "view": {
+            "type": "string",
+            "enum": [
+              "hero",
+              "front",
+              "back",
+              "side",
+              "mount",
+              "ports",
+              "other"
+            ]
+          },
+          "file": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "source_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "rights_holder": {
+            "type": "string",
+            "minLength": 1
+          },
+          "license": {
+            "type": "string",
+            "enum": [
+              "self_created",
+              "licensed",
+              "press_kit_permission",
+              "unverified"
+            ]
+          },
+          "alt_key": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "view",
+          "license"
+        ]
+      }
+    },
+    "related_docs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "manufacturer",
+    "model",
+    "specs",
+    "sources"
+  ]
+}

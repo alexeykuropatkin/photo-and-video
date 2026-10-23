@@ -1,0 +1,16 @@
+version: "1.0"
+values:
+  sony-e:
+    kind: camera_lens_mount
+    flange_focal_distance_mm: 18
+  nikon-z:
+    kind: camera_lens_mount
+    flange_focal_distance_mm: 16
+  canon-ef:
+    kind: camera_lens_mount
+    flange_focal_distance_mm: 44
+  canon-rf:
+    kind: camera_lens_mount
+    flange_focal_distance_mm: 20
+  arri-pl:
+    kind: camera_lens_mount

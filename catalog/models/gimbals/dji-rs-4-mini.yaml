@@ -1,0 +1,20 @@
+id: dji-rs-4-mini
+type: gimbal
+manufacturer: DJI
+model: RS 4 Mini
+specs:
+  tested_payload_min_g: 400
+  tested_payload_max_g: 2000
+  axis_locks: automatic
+measurements:
+  - id: assembled-without-tripod
+    configuration: assembled_without_tripod
+    weight_g: 890
+    includes: [gimbal_head, quick_release_plate, integrated_battery]
+    excludes: [mini_tripod, camera, lens]
+    source_id: dji-specifications
+sources:
+  - id: dji-specifications
+    kind: manufacturer
+    url: https://www.dji.com/rs-4-mini/specs
+    verified_at: "2026-10-23"

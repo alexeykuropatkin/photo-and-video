@@ -1,0 +1,27 @@
+version: "1.0"
+items:
+  - instance_id: a7s3-owned-1
+    model_id: sony-ilce-7sm3
+    status: owned
+    evidence: user_report
+    confirmed_on: "2026-10-23"
+  - instance_id: a6700-owned-1
+    model_id: sony-ilce-6700
+    status: owned
+    evidence: user_report
+    confirmed_on: "2026-10-23"
+  - instance_id: sony-sel2470gm-owned-1
+    model_id: sony-sel2470gm
+    status: owned
+    evidence: user_report
+    confirmed_on: "2026-10-23"
+  - instance_id: dji-rs3pro-owned-1
+    model_id: dji-rs-3-pro
+    status: owned
+    evidence: user_report
+    confirmed_on: "2026-10-23"
+  - instance_id: dji-rs4mini-owned-1
+    model_id: dji-rs-4-mini
+    status: owned
+    evidence: user_report
+    confirmed_on: "2026-10-23"

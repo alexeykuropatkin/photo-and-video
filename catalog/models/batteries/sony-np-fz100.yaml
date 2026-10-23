@@ -1,0 +1,27 @@
+id: sony-np-fz100
+type: battery
+manufacturer: Sony
+model: NP-FZ100
+sku: NP-FZ100
+specs:
+  chemistry: li_ion
+  capacity_wh: 16.4
+  capacity_mah: 2280
+  nominal_voltage_v: 7.2
+  battery_interface_ids: [sony-np-fz100-slot]
+  physical:
+    width_mm: 38.7
+    height_mm: 22.7
+    depth_mm: 51.7
+measurements:
+  - id: battery-only
+    configuration: battery_only
+    weight_g: 83
+    includes: [battery]
+    excludes: [charger]
+    source_id: sony-specifications
+sources:
+  - id: sony-specifications
+    kind: manufacturer
+    url: https://electronics.sony.com/imaging/imaging-accessories/interchangeable-lens-camera-accessories/p/npfz100
+    verified_at: "2026-10-23"

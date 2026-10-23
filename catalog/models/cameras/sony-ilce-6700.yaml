@@ -1,0 +1,47 @@
+id: sony-ilce-6700
+type: camera
+manufacturer: Sony
+model: Alpha 6700
+sku: ILCE-6700
+specs:
+  mount_id: sony-e
+  sensor:
+    format_id: aps-c
+    width_mm: 23.3
+    height_mm: 15.5
+    effective_megapixels: 26
+    shutter_type: rolling
+  autofocus:
+    continuous_supported: true
+    subject_tracking_supported: true
+  power:
+    native_battery_interface_ids: [sony-np-fz100-slot]
+  recording_modes:
+    - id: xavc-si-4k25-422
+      codec_id: xavc-s-i
+      width_px: 3840
+      height_px: 2160
+      fps: [25]
+      bit_depth: 10
+      raw: false
+      chroma_subsampling: "4:2:2"
+      recording: internal
+      bitrate_mbps: 250
+  physical:
+    width_mm: 122
+    height_mm: 69
+    depth_mm: 75.1
+measurements:
+  - id: with-battery-and-card
+    configuration: with_battery_and_card
+    weight_g: 493
+    includes: [battery, memory_card]
+    excludes: [lens, cage, gimbal]
+    source_id: sony-specifications
+sources:
+  - id: sony-specifications
+    kind: manufacturer
+    url: https://www.sony.com/electronics/support/e-mount-body-ilce-6000-series/ilce-6700/specifications
+    verified_at: "2026-10-23"
+related_docs:
+  - sony.md

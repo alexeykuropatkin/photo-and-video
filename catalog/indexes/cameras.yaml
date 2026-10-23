@@ -1,0 +1,3 @@
+models:
+  - models/cameras/sony-ilce-7sm3.yaml
+  - models/cameras/sony-ilce-6700.yaml

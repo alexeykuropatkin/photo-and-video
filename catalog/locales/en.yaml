@@ -1,0 +1,41 @@
+locale: en
+labels:
+  types:
+    camera: Camera
+    lens: Lens
+    mount_adapter: Mount adapter
+    gimbal: Gimbal stabilizer
+    battery: Battery
+    cage: Camera cage
+  fields:
+    manufacturer: Manufacturer
+    model: Model
+    weight_g: Weight
+    measurement_configuration: Measurement configuration
+    focal_length: Focal length
+    max_aperture_f: Maximum aperture
+    max_aperture_t: Maximum T-stop
+    filter_front_thread_mm: Filter thread
+    image_circle_mm: Image circle
+    sensor_format: Sensor format
+    shutter_type: Shutter type
+    continuous_af: Continuous autofocus
+    recording_codec: Recording codec
+    bit_depth: Bit depth
+    capacity_wh: Battery energy
+    capacity_mah: Battery capacity
+    voltage_v: Voltage
+    mount: Mount
+    source: Source
+    verified_at: Last verified
+  values:
+    owned: Owned
+    planned: Planned
+    considering: Considering
+    sold: Sold
+    borrowed: Borrowed
+    global: Global shutter
+    rolling: Rolling shutter
+    with_battery_and_card: With battery and memory card
+    assembled_without_tripod: Assembled without mini tripod
+    not_tested: Not tested

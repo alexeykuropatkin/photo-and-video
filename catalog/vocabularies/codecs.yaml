@@ -1,0 +1,13 @@
+version: "1.0"
+values:
+  braw: {raw: true}
+  redcode-raw: {raw: true}
+  r3d-ne: {raw: true}
+  n-raw: {raw: true}
+  prores-raw: {raw: true}
+  prores-422-hq: {raw: false}
+  xavc-s: {raw: false}
+  xavc-s-i: {raw: false}
+  xavc-hs: {raw: false}
+  h265: {raw: false}
+  h264: {raw: false}

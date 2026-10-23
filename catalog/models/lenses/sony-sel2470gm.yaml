@@ -1,0 +1,44 @@
+id: sony-sel2470gm
+type: lens
+manufacturer: Sony
+model: FE 24-70mm F2.8 GM
+sku: SEL2470GM
+generation: 1
+specs:
+  mount_id: sony-e
+  sensor_format_id: full-frame
+  focal_length:
+    min_mm: 24
+    max_mm: 70
+  aperture:
+    max_f: 2.8
+    min_f: 22
+    constant: true
+    control: electronic
+    blades: 9
+  focus:
+    autofocus: true
+    minimum_distance_m: 0.38
+    max_magnification: 0.24
+  zoom:
+    internal: false
+  stabilization:
+    optical: false
+  filter:
+    front_thread_mm: 82
+  physical:
+    width_mm: 87.6
+    height_mm: 87.6
+    depth_mm: 136
+measurements:
+  - id: catalog-lens
+    configuration: lens_without_caps
+    weight_g: 886
+    includes: [lens]
+    excludes: [hood, front_cap, rear_cap]
+    source_id: sony-specifications
+sources:
+  - id: sony-specifications
+    kind: manufacturer
+    url: https://www.sony.com/en-ae/electronics/camera-lenses/sel2470gm/specifications
+    verified_at: "2026-10-23"

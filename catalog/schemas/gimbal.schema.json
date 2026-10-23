@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "common.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "gimbal"
+        },
+        "specs": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "tested_payload_min_g": {
+              "type": "number",
+              "minimum": 0
+            },
+            "tested_payload_max_g": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "axis_locks": {
+              "type": "string",
+              "enum": [
+                "automatic",
+                "manual",
+                "none",
+                "unknown"
+              ]
+            },
+            "physical": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "width_mm": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "height_mm": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "depth_mm": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                }
+              }
+            },
+            "supported_modes": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "battery_interface_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "pan_range_deg": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "min": {
+                  "type": "number"
+                },
+                "max": {
+                  "type": "number"
+                }
+              }
+            },
+            "tilt_range_deg": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "min": {
+                  "type": "number"
+                },
+                "max": {
+                  "type": "number"
+                }
+              }
+            },
+            "roll_range_deg": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "min": {
+                  "type": "number"
+                },
+                "max": {
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "required": [
+            "tested_payload_max_g"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "specs"
+      ]
+    }
+  ]
+}

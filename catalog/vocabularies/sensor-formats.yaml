@@ -1,0 +1,8 @@
+version: "1.0"
+values:
+  full-frame: {}
+  aps-c: {}
+  super-35: {}
+  vista-vision: {}
+  micro-four-thirds: {}
+  other: {}

@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "instance_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]*$",
+            "minLength": 1
+          },
+          "model_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "owned",
+              "planned",
+              "considering",
+              "sold",
+              "borrowed"
+            ]
+          },
+          "evidence": {
+            "type": "string",
+            "enum": [
+              "user_report",
+              "purchase_record",
+              "imported",
+              "unknown"
+            ]
+          },
+          "confirmed_on": {
+            "type": "string",
+            "format": "date"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "firmware_version": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "instance_id",
+          "model_id",
+          "status",
+          "evidence"
+        ]
+      }
+    }
+  },
+  "required": [
+    "version",
+    "items"
+  ]
+}
