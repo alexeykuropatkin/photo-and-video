@@ -27,4 +27,4 @@ This repository contains technical documentation and a structured photography/ci
 
 ## Working practices
 
-Propose changes through a branch/PR. Run catalog validation (once implemented), keep schemas and indexes in sync, and update the architectural docs when a design decision changes.
+Work directly on `main`, as requested by the repository owner. Do not create additional branches or pull requests unless explicitly requested. Run catalog validation, keep schemas and indexes in sync, and update the architectural docs when a design decision changes.
